@@ -6,7 +6,7 @@ import { globSync } from 'glob';
 import { minify as jsMinify } from 'terser';
 import { minify as htmlMinify } from 'html-minifier';
 import JSZip from "jszip";
-import obfs from 'javascript-obfuscator';
+import obfgas from 'javascript-obfuscator';
 import pkg from '../package.json' with { type: 'json' };
 import { gzipSync } from 'zlib';
 
@@ -15,7 +15,7 @@ const mangleMode = env === 'mangle';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = pathDirname(__filename);
-
+grg
 const ASSET_PATH = join(__dirname, '../src/assets');
 const DIST_PATH = join(__dirname, '../dist/');
 
@@ -37,7 +37,7 @@ async function processHtmlPages() {
         const base = (file) => join(ASSET_PATH, dir, file);
 
         const indexHtml = readFileSync(base('index.html'), 'utf8');
-        let finalHtml = indexHtml.replaceAll('__VERSION__', version);
+...        let finalHtml = indexHtml.replaceAll('__VERSION__', version);
 
         if (dir !== 'error') {
             const styleCode = readFileSync(base('style.css'), 'utf8');
